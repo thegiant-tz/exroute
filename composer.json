@@ -1,0 +1,20 @@
+{
+    "name": "thegiant/exroute",
+    "description": "It is a curl request package, that used as an API Route",
+    "require": {
+        "thegiant/azampay": "^1.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Thegiant\\Exroute\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shebyclassic2018",
+            "email": "shaabanbakhresa85@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

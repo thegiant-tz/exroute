@@ -6,7 +6,9 @@ class CurlRequest
 {
     private static function curlpost($url, $data, $request = 'POST', $headers = ['Content-Type: application/json', 'Accept: application/json'], $status = false)
     {
-        $authHeader = [];
+        $authHeader = [
+            'Authorization: Bearer ' . Auth::user()->token,
+        ];
         if (!$status) {
             $curl = curl_init();
             curl_setopt_array($curl, array(

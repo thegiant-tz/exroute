@@ -1,14 +1,21 @@
-<?php 
+<?php
+
 namespace Thegiant\ExRoute;
 
-class ExRoute {
-    static function post($uri, $data, $page = 1, $headers = ['Content-Type: application/json', 'Accept: application/json'], $baseUrl = '')
+class ExRoute
+{
+    static function post($uri, $body, $headers = ['Content-Type: application/json', 'Accept: application/json'])
     {
-        return CurlRequest::post(Route::apiRoute($uri, $page, $baseUrl), $data, $headers);
+        return CurlRequest::post($uri, $body, $headers);
     }
 
-    static function get($uri, $data, $page = 1, $headers = ['Content-Type: application/json', 'Accept: application/json'], $baseUrl = '')
+    static function get($uri, $body, $headers = ['Content-Type: application/json', 'Accept: application/json'])
     {
-        return CurlRequest::get(Route::apiRoute($uri, $page, $baseUrl), $data, $headers);
+        return CurlRequest::get($uri, $body, $headers);
+    }
+
+    static function request($uri, $body, $method = 'POST', $headers = ['Content-Type: application/json', 'Accept: application/json'])
+    {
+        return strtoupper($method) == 'POST' ? self::post($uri, $body, $headers) : self::get($uri, $body, $headers);
     }
 }

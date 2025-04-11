@@ -2,7 +2,8 @@
 namespace Thegiant\ExRoute;
 
 class Route {
-    static function apiRoute($endpoint, $page = 1) {
-        return env('API_BASE_URL'). $endpoint . "?page=" . $page;
+    static function apiRoute($endpoint, $page = 1, $baseUrl = null)
+    {
+        return (is_null($baseUrl) ? env('EX_BASE_URL') : $baseUrl) . $endpoint . "?page=" . $page;
     }
 }
